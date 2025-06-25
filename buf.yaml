@@ -1,14 +1,9 @@
 version: v1
 name: buf.build/hobom-s/hobom-buf-proto
 
-build:
-  roots:
-    - proto
-
-deps: []
-breaking:
-  use:
-    - FILE
 lint:
   use:
     - DEFAULT
+breaking:
+  use:
+    - FILE
