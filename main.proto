@@ -5,5 +5,3 @@ option go_package = "github.com/HoBom-s/hobom-event-processor/infra/grpc/outbox;
 
 import "menu/outbox/v1/hobom-menu-outbox.proto";
 import "menu/outbox/v1/patch-hobom-menu-outbox.proto";
-
-message _BufPlaceholder {}
