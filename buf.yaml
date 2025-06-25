@@ -1,5 +1,5 @@
 version: v1
-name: https://github.com/HoBom-s/hobom-buf-proto
+name: buf.build/hobom-s/hobom-buf-proto
 
 deps: []
 breaking:
