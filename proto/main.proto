@@ -3,3 +3,5 @@ package outbox;
 
 import "menu/outbox/v1/hobom-menu-outbox.proto";
 import "menu/outbox/v1/patch-hobom-menu-outbox.proto";
+
+message _BufPlaceholder {}
