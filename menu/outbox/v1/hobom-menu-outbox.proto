@@ -35,8 +35,8 @@ message QueryResult {
 message TodayMenuPayload {
   string todayMenuId = 1;
   string name = 2;
-  string username 3;
-  string nickname 4;
-  string email 5;
-  string userId 6;
+  string username = 3;
+  string nickname = 4;
+  string email = 5;
+  string userId = 6;
 }
