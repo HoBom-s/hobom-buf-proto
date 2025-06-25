@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package outbox;
+
+option go_package = "github.com/HoBom-s/hobom-event-processor/infra/grpc/v1/hobom-menu-outbox;hobommenupb";
+
+service PatchOutboxController {
+  rpc MarkAsSent(MarkRequest) returns (MarkResponse);
+  rpc MarkAsFailed(MarkFailedRequest) returns (MarkResponse);
+}
+
+message MarkRequest {
+  string eventId = 1;
+}
+
+message MarkFailedRequest {
+  string eventId = 1;
+  string errorMessage = 2;
+}
+
+message MarkResponse {
+  bool success = 1;
+  string errorMessage = 2;
+}
