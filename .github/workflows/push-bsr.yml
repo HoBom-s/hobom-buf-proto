@@ -1,0 +1,46 @@
+name: Push to BSR and notify downstream
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.proto"
+      - "buf.yaml"
+
+jobs:
+  push-and-notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: bufbuild/buf-action@v1
+        with:
+          token: ${{ secrets.BUF_TOKEN }}
+
+      - name: Notify hobom-event-processor
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOWNSTREAM_PAT }}
+          repository: HoBom-s/hobom-event-processor
+          event-type: proto-update
+
+      - name: Notify for-hobom-backend
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOWNSTREAM_PAT }}
+          repository: HoBom-s/for-hobom-backend
+          event-type: proto-update
+
+      - name: Notify hobom-llm-service-backend
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOWNSTREAM_PAT }}
+          repository: HoBom-s/hobom-llm-service-backend
+          event-type: proto-update
+
+      - name: Notify hobom-space-backend
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.DOWNSTREAM_PAT }}
+          repository: HoBom-s/hobom-space-backend
+          event-type: proto-update
