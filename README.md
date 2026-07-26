@@ -46,13 +46,6 @@ buf generate buf.build/hobom/hobom-buf-proto
 ## Directory Structure
 
 ```
-├── law/
-│   ├── v1/save-study-material.proto              SaveStudyMaterialController
-│   └── outbox/v1/find-hobom-law-outbox.proto     FindHoBomLawOutboxController
-├── llm/
-│   └── v1/
-│       ├── generate-study-material.proto          StudyMaterialService.Generate
-│       └── ask-question.proto                     StudyMaterialService.Ask
 ├── log/
 │   └── outbox/v1/hobom-log-outbox.proto           FindHoBomLogOutboxController
 ├── message/
@@ -71,9 +64,6 @@ buf generate buf.build/hobom/hobom-buf-proto
 
 | Package      | Service                            | RPC                                      | Consumer               |
 | ------------ | ---------------------------------- | ---------------------------------------- | ---------------------- |
-| `outbox.law` | `FindHoBomLawOutboxController`     | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
-| `law`        | `SaveStudyMaterialController`      | `SaveStudyMaterial`                      | hobom-event-processor  |
-| `llm`        | `StudyMaterialService`             | `Generate`, `Ask`                        | hobom-event-processor, for-hobom-backend |
 | `outbox.log` | `FindHoBomLogOutboxController`     | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
 | `outbox`     | `FindHoBomMessageOutboxController` | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
 | `outbox`     | `PatchOutboxController`            | `PatchOutboxMarkAsSentUseCase`, `...Failed` | hobom-event-processor |
