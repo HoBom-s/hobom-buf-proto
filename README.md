@@ -46,6 +46,10 @@ buf generate buf.build/hobom/hobom-buf-proto
 ## Directory Structure
 
 ```
+├── angel/
+│   └── outbox/v1/
+│       ├── find-hobom-angel-outbox.proto          FindHoBomAngelOutboxController
+│       └── patch-hobom-angel-outbox.proto         PatchHoBomAngelOutboxController
 ├── log/
 │   └── outbox/v1/hobom-log-outbox.proto           FindHoBomLogOutboxController
 ├── message/
@@ -64,6 +68,8 @@ buf generate buf.build/hobom/hobom-buf-proto
 
 | Package      | Service                            | RPC                                      | Consumer               |
 | ------------ | ---------------------------------- | ---------------------------------------- | ---------------------- |
+| `outbox.angel` | `FindHoBomAngelOutboxController`   | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
+| `outbox.angel` | `PatchHoBomAngelOutboxController`  | `PatchOutboxMarkAsSentUseCase`, `...Failed` | hobom-event-processor |
 | `outbox.log` | `FindHoBomLogOutboxController`     | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
 | `outbox`     | `FindHoBomMessageOutboxController` | `FindOutboxByEventTypeAndStatusUseCase`  | hobom-event-processor  |
 | `outbox`     | `PatchOutboxController`            | `PatchOutboxMarkAsSentUseCase`, `...Failed` | hobom-event-processor |
